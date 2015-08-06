@@ -1,4 +1,5 @@
 ﻿using EdmundsApi.Requests;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace EdmundsApi.Models
         public string ID { get; set; }
         public string Name { get; set; }
         public string NiceName { get; set; }
-        public Year[] Years { get; set; }
+        public ModelYear[] Years { get; set; }
         public State[] States { get; set; }
 
         public override string ToString()
@@ -20,10 +21,12 @@ namespace EdmundsApi.Models
             return Name;
         }
         
-        public class Year
+        public class ModelYear
         {
             public int ID { get; set; }
+            [JsonProperty("year")]
             public int Value { get; set; }
+            public Style[] Styles { get; set; }
             public State[] States { get; set; }
             
             public override string ToString()

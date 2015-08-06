@@ -9,6 +9,7 @@ using Flurl;
 using Flurl.Http;
 using EdmundsApi.Responses;
 using EdmundsApi.Requests;
+using EdmundsApi.Models;
 
 namespace EdmundsApi
 {
@@ -42,7 +43,7 @@ namespace EdmundsApi
             return await url.GetJsonAsync<T>();
         }
         
-        public async Task<MakeList> GetMakeList(State state = State.New, int? year = null, View view = View.Basic)
+        public async Task<List<Make>> GetMakeList(State state = State.New, int? year = null, View view = View.Basic)
         {
             var queryParams = new Dictionary<string, object> { 
                 { "state", state.ToString().ToLower() },
@@ -50,7 +51,7 @@ namespace EdmundsApi
                 { "view", view.ToString().ToLower() },
             };
 
-            return await Call<MakeList>("/api/vehicle/v2/makes", queryParams: queryParams);
+            return await Call<List<Make>>("/api/vehicle/v2/makes", queryParams: queryParams);
         }
 
         //Helpers

@@ -10,17 +10,18 @@ namespace EdmundsApi.Test
     [TestClass]
     public class EdmundsTests
     {
-        private static string _apiKey;
+        private static string _apiKey = "noKey";
         private Edmunds _api;
 
         // Set _mockHttp to false to actually call the service
-        private bool _mockHttp = false;
+        private static bool _mockHttp = false;
         private HttpTest _httpTest;
 
         [ClassInitialize]
         public static void ClassInit(TestContext testContext)
         {
-            _apiKey = System.IO.File.ReadAllText("EdmundsApiKey.txt").Trim();
+            if (!_mockHttp)
+                _apiKey = System.IO.File.ReadAllText("EdmundsApiKey.txt").Trim();
         }
 
         [TestInitialize]
