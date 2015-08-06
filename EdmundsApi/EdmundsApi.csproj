@@ -143,7 +143,6 @@
     <Compile Include="Edmunds.cs" />
     <Compile Include="Models\Style.cs" />
     <Compile Include="Models\SubModel.cs" />
-    <Compile Include="Models\test.cs" />
     <Compile Include="NamedFormatter.cs" />
     <Compile Include="Models\Make.cs" />
     <Compile Include="Models\Model.cs" />

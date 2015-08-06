@@ -66,10 +66,12 @@ namespace EdmundsApi.Test
         }
 
         [TestMethod]
-        public void GetMakeList_GetAllNew()
+        public void GetAllMakes_GetAllNew()
         {
             SetHttpResponse(listOfMakes);
-            var makeList = _api.GetMakeList().Result;
+            var makeList = _api.GetAllMakes(state: Requests.State.New).Result;
+
+            Assert.IsNotNull(makeList);
         }
 
         //Helpers
