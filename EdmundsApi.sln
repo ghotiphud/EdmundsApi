@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdmundsApi", "EdmundsApi\EdmundsApi.csproj", "{81E1DF39-935B-4462-B068-92A79FDAFD58}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdmundsApi.Test", "EdmundsApi.Test\EdmundsApi.Test.csproj", "{9CB75C36-A687-47F7-B68C-14C6119408E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81E1DF39-935B-4462-B068-92A79FDAFD58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81E1DF39-935B-4462-B068-92A79FDAFD58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81E1DF39-935B-4462-B068-92A79FDAFD58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81E1DF39-935B-4462-B068-92A79FDAFD58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CB75C36-A687-47F7-B68C-14C6119408E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CB75C36-A687-47F7-B68C-14C6119408E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CB75C36-A687-47F7-B68C-14C6119408E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CB75C36-A687-47F7-B68C-14C6119408E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
