@@ -18,4 +18,24 @@ namespace EdmundsApi.Requests
         Basic,
         Full,
     }
+
+    public enum Category
+    {
+        Hatchback4Dr,
+        Coupe,
+        Convertible,
+        Sedan,
+        Hatchback2Dr,
+        Wagon,
+        RegularCabPickup,
+        ExtendedCabPickup,
+        CrewCabPickup,
+        Suv2Dr,
+        Suv4Dr,
+        SuvConvertible,
+        CargoVan,
+        PassengerVan,
+        CargoMinivan,
+        PassengerMinivan
+    }
 }

@@ -56,6 +56,21 @@ namespace EdmundsApi
             return makeList.makes;
         }
 
+        public async Task<Model> GetModel(string makeNiceName, string modelNiceName, string submodel, int? year, Category? category, State state, View view = View.Basic)
+        {
+            var queryParams = new Dictionary<string, object>
+            {
+                {"view",view.ToString().ToLower()},
+                {"state", state.ToString().ToLower()},
+                {"year", year},
+                {"submodel", submodel.ToLower()},
+                {"category",category.ToString().ToLower()}
+            };
+            var modelQuery = await Call<Model>("/api/vehicle/v2/" + makeNiceName + "/" + modelNiceName + "/", queryParams: queryParams);
+
+            return modelQuery;
+        }
+
         //Helpers
         private Url BuildUrl(string endpoint, object endpointParams, IDictionary<string, object> queryParams)
         {
