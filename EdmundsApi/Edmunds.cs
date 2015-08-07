@@ -56,7 +56,7 @@ namespace EdmundsApi
             return makeList.makes;
         }
 
-        public async Task<Model> GetModel(string makeNiceName, string modelNiceName, string submodel, int? year, Category? category, State state, View view = View.Basic)
+        public async Task<Model> GetModelInfo(string makeNiceName, string modelNiceName, string submodel, int? year, Category? category, State state, View view = View.Basic)
         {
             var queryParams = new Dictionary<string, object>
             {
@@ -69,6 +69,18 @@ namespace EdmundsApi
             var modelQuery = await Call<Model>("/api/vehicle/v2/" + makeNiceName + "/" + modelNiceName + "/", queryParams: queryParams);
 
             return modelQuery;
+        }
+
+        public async Task<Style> GetStyleInfo(int vehicleId, View view = View.Basic)
+        {
+            var queryParams = new Dictionary<string, object>
+            {
+                {"view", view.ToString().ToLower()}
+            };
+
+            var styleQuery = await Call<Style>("/api/vehicle/v2/styles/{vehicleId}", new { vehicleId = vehicleId }, queryParams : queryParams);
+
+            return styleQuery;
         }
 
         //Helpers
