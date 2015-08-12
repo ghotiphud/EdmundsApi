@@ -1,0 +1,33 @@
+﻿@model EdmundsMvc.Models.CustomersModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>KarWars</h1>
+    <h3>Welcome to KarWars! Let's get started.</h3>
+    <div id="div1">
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name)
+                <input onclick="return false;" id="nextButton" type="submit" class="form-control" value="Next" />
+            </div>
+        }
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#nextButton").click(function() {
+                $.ajax({
+                    url: "../Wizard/_One",
+                    success: function(result) {
+                        $("#div1").html(result);
+                    }
+                });
+            });
+        });
+    </script>
+}

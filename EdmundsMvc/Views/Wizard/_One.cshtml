@@ -1,0 +1,34 @@
+﻿@model EdmundsMvc.Models.CustomersModel
+
+<div class="row">
+    @using (Html.BeginForm())
+    {
+        @ViewBag.Name
+        <h4>Let's start with your age.</h4>
+        <div class="form-horizontal">
+            @Html.RadioButtonFor(model => model.Age, 25)
+            @Html.Label("18-25")
+            @Html.RadioButtonFor(model => model.Age, 30)
+            @Html.Label("25-30")
+            @Html.RadioButtonFor(model => model.Age, 35)
+            @Html.Label("31-35")
+            @Html.RadioButtonFor(model => model.Age, 40)
+            @Html.Label("36-40")
+            @Html.RadioButtonFor(model => model.Age, 45)
+            @Html.Label("41-45")
+            @Html.RadioButtonFor(model => model.Age, 50)
+            @Html.Label("46-50")
+            @Html.RadioButtonFor(model => model.Age, 55)
+            @Html.Label("51-55")
+            @Html.RadioButtonFor(model => model.Age, 60)
+            @Html.Label("55+")
+        </div>
+        <div class="form-inline">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input onclick="return false" type="submit" value="Next" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

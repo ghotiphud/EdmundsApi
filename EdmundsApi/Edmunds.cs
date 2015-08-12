@@ -43,9 +43,9 @@ namespace EdmundsApi
             return await url.GetJsonAsync<T>();
         }
         
-        public async Task<Make[]> GetAllMakes(State state = State.New, int? year = null, View view = View.Basic)
+        public async Task<Make[]> GetAllMakes( int? year = null, State state = State.New, View view = View.Full)
         {
-            var queryParams = new Dictionary<string, object> { 
+            var queryParams = new Dictionary<string, object> {
                 { "state", state.ToString().ToLower() },
                 { "year", year },
                 { "view", view.ToString().ToLower() },
@@ -56,19 +56,28 @@ namespace EdmundsApi
             return makeList.makes;
         }
 
-        public async Task<Model> GetModelInfo(string makeNiceName, string modelNiceName, string submodel, int? year, Category? category, State state, View view = View.Basic)
+        public async Task<Make> GetMake(string makeNiceName, string modelNiceName, State state = State.New, View view = View.Basic)
         {
             var queryParams = new Dictionary<string, object>
             {
-                {"view",view.ToString().ToLower()},
-                {"state", state.ToString().ToLower()},
-                {"year", year},
-                {"submodel", submodel.ToLower()},
-                {"category",category.ToString().ToLower()}
+                { "state", state.ToString().ToLower() },
+                { "view", view.ToString().ToLower() }
             };
-            var modelQuery = await Call<Model>("/api/vehicle/v2/" + makeNiceName + "/" + modelNiceName + "/", queryParams: queryParams);
+            var make = await Call<Make>("/api/vehicle/v2/{makeNiceName}/{modelniceName}", new { makeNiceName = makeNiceName, modelNiceName = modelNiceName }, queryParams: queryParams);
 
-            return modelQuery;
+            return make;
+        }
+
+        public async Task<Model> GetModel(string make, State state = State.New, View view = View.Basic)
+        {
+            var queryParams = new Dictionary<string, object>
+            {
+                { "state", state.ToString().ToLower() },
+                { "view", view.ToString().ToLower() }
+            };
+
+            var model = await Call<Model>("/api/vehicle/v2/{make}", new {make = make}, queryParams: queryParams);
+            return model;
         }
 
         public async Task<Style> GetStyleInfo(int vehicleId, View view = View.Basic)
