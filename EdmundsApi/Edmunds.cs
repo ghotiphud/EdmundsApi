@@ -63,7 +63,7 @@ namespace EdmundsApi
                 { "state", state.ToString().ToLower() },
                 { "view", view.ToString().ToLower() }
             };
-            var make = await Call<Make>("/api/vehicle/v2/{makeNiceName}/{modelniceName}", new { makeNiceName = makeNiceName, modelNiceName = modelNiceName }, queryParams: queryParams);
+            var make = await Call<Make>("/api/vehicle/v2/{makeNiceName}/{modelNiceName}", new { makeNiceName = makeNiceName, modelNiceName = modelNiceName }, queryParams: queryParams);
 
             return make;
         }

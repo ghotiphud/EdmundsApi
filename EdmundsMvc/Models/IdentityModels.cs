@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using EdmundsApi.Models;
 
 namespace EdmundsMvc.Models
 {
@@ -30,10 +31,8 @@ namespace EdmundsMvc.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<EdmundsApi.Models.Make> Makes { get; set; }
+        public DbSet<Make> Makes { get; set; }
 
-        public System.Data.Entity.DbSet<EdmundsMvc.Models.CustomersModel> CustomersModels { get; set; }
-
-        public System.Data.Entity.DbSet<EdmundsApi.Models.Model> Models { get; set; }
+        public DbSet<Model> Models { get; set; }
     }
 }
